@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            display: grid;
+            /* функция repeat() - позволяет задать количество повторений с одинаковой размерностью */
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: 100px 100px 100px;
+           /* grid-column-gap: 3px;
+            grid-row-gap: 3px;*/
+            /* *-gap - отступы для рядов/колонок/всего сразу*/
+            grid-gap: 3px;
+
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .color {
+            text-align: center;
+        }
+
+        .red {
+            background-color: red;
+            /*grid-column-start: 1;
+            grid-column-end: 4;*/
+            grid-column: 1/4;
+        }
+        .yellow { background-color: yellow; }
+        .green { background-color: green; }
+        .blue { background-color: blue; }
+        .violet { background-color: violet; }
+        .coral { background-color: coral; }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="color red">1</div>
+        <div class="color yellow">2</div>
+        <div class="color green">3</div>
+        <div class="color blue">4</div>
+        <div class="color violet">5</div>
+        <div class="color coral">6</div>
+    </div>
+</body>
+</html>

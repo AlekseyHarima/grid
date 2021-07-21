@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Holy grail</title>
+    <style>
+        body {
+            display: grid;
+            grid-template-columns: 20% 1fr 15%;
+            grid-template-rows: 60px 1fr 60px;
+            grid-gap: 10px;
+            grid-template-areas:
+                ". header ads"
+                "article nav ads"
+                "article footer ads"
+            ;
+            /*  100vw (viewport width) - полная ширина viewport
+                100vh (viewport height) - полная высота viewport*/
+            height: 100vh;
+            margin: 0;
+        }
+
+        body * {
+            padding: 20px;
+            background-color: gold;
+        }
+
+        #main-article { grid-area: article; }
+        #main-nav { grid-area: nav; }
+        #page-footer { grid-area: footer; }
+        #site-ads { grid-area: ads; }
+        #page-header { grid-area: header; }
+
+
+        @media screen and (max-width: 600px) {
+            body {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: repeat(4, 1fr);
+                grid-template-areas:
+                "header"
+                "article"
+                "nav"
+                "ads"
+                "footer"
+            ;
+
+                /*
+                Неявные гриды - это те ячейки сетки, которые явно не уместились в сетку заданную через grid-template-columns и grid-template-rows. Соответственно, их размеру будут auto;
+                grid-auto-rows: 200px; - размер для неявных гридов (строк)
+                grid-auto-columns: 200px; - размер для неявных гридов (строк)
+
+                */
+                grid-auto-rows: 600px;
+
+                /* grid-auto-flow: - позволяет задавать перестроение для неявных гридов. Т.е., если неявный грид переходит в новую строку, и нас это стандартное поведение не устраивает, то мы можем перенести его в колонку  */
+                grid-auto-flow: column;
+            }
+        }
+    </style>
+</head>
+<body>
+<header id="page-header">Header</header>
+<article id="main-article">Article</article>
+<nav id="main-nav">Navigation</nav>
+<div id="site-ads">Ads</div>
+<footer id="page-footer">Footer</footer>
+</body>
+</html>
